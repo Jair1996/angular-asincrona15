@@ -5,7 +5,14 @@ import { Student } from '../interfaces';
   providedIn: 'root',
 })
 export class StudentService {
-  students: Array<Student> = [];
+  students: Array<Student> = [
+    {
+      id: '1',
+      nombre: 'Jair',
+      apellido: 'Tello',
+      carrera: 'Frontend',
+    },
+  ];
 
   constructor() {}
 
