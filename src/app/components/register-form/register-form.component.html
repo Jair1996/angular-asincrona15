@@ -1,0 +1,60 @@
+<section>
+  <p class="mb-4 fs-4 fw-bold text-primary">Formulario de Registro</p>
+  <form (ngSubmit)="save()" #registerForm="ngForm" autocomplete="off">
+    <div class="mb-3">
+      <label for="txtNombre" class="form-label">Nombre</label>
+      <input
+        [(ngModel)]="initForm.nombre"
+        name="nombre"
+        type="text"
+        class="form-control"
+        id="txtNombre"
+        [class.is-invalid]="isTheFieldInvalid('nombre')"
+        required
+        pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$"
+        />
+        <div class="invalid-feedback">
+          No puede contener números ni caracteres especiales
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtApellido" class="form-label">Apellido</label>
+        <input
+        [(ngModel)]="initForm.apellido"
+        name="apellido"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="isTheFieldInvalid('apellido')"
+        id="txtApellido"
+        required
+        pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$"
+      />
+      <div class="invalid-feedback">
+        No puede contener números ni caracteres especiales
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="txtCarrera" class="form-label">Carrera</label>
+      <input
+        [(ngModel)]="initForm.carrera"
+        name="carrera"
+        type="text"
+        class="form-control"
+        [class.is-invalid]="isTheFieldInvalid('carrera')"
+        id="txtCarrera"
+        required
+      />
+      <div class="invalid-feedback">El campo no puede ir vacío</div>
+    </div>
+
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Guardar
+    </button>
+  </form>
+</section>
